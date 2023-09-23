@@ -1,0 +1,9 @@
+checkAuthentication(context);
+
+    if (!isLoggedIn) {
+      Navigator.of(context).pushNamedAndRemoveUntil("login", (r) => false);
+    } else {
+      Navigator.of(context).pushNamedAndRemoveUntil("/", (r) => false);
+    }
+
+    return Center();

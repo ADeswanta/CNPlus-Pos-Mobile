@@ -1,0 +1,54 @@
+builder: (context, scrollController) => Container(
+                  height: 800,
+                  color: Colors.cyan,
+                  child:
+                    // Header
+                    SingleChildScrollView(
+                        controller: scrollController,
+                        child: Expanded(
+                            child: Column(
+                          children: [
+                            Container(
+                                height: MediaQuery.of(context).size.height * .1,
+                                color: Colors.red),
+                            Expanded(
+                              child: ListView(
+                                  controller: scrollController,
+                                  children: [
+                                    // Flexible(
+                                    //   child: ListView(
+                                    //     children: [
+                                    Container(height: 80, color: Colors.green),
+                                    Container(height: 80, color: Colors.yellow),
+                                    Container(height: 80, color: Colors.green),
+                                    Container(height: 80, color: Colors.yellow),
+                                    Container(height: 80, color: Colors.green),
+                                    Container(height: 80, color: Colors.yellow),
+                                    Container(height: 80, color: Colors.green),
+                                    Container(height: 80, color: Colors.yellow),
+                                    //     ],
+                                    //   ),
+                                    // ),
+                                  ]),
+                            ),
+                          ],
+                        ))),
+                    // Content
+
+                    Container(
+                      height: 80,
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Colors.blue,
+                          Colors.red,
+                        ],
+                      )),
+                    ),
+                  ]
+                )),
+
+
+      

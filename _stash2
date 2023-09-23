@@ -1,0 +1,38 @@
+LayoutBuilder(builder: (context, safeAreaSize) {
+          double screenHeight =
+              safeAreaSize.maxHeight; //MediaQuery.of(context).size.height;
+          double calculatedHeight =
+              1 - ((screenHeight - headerHeight) / screenHeight);
+
+          debugPrint('height: $screenHeight');
+
+          return DraggableScrollableSheet(
+              initialChildSize: .5,
+              minChildSize: calculatedHeight,
+              snap: true,
+              snapSizes: const [.5],
+              builder: (context, scrollController) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    SingleChildScrollView(
+                      controller: scrollController,
+                      child: Container(
+                          height: 80,
+                          color: Colors.grey,
+                          child: Center(child: Text('Drag me down from top'))),
+                    ),
+                    Flexible(
+                        child: Container(
+                            color: Colors.blue[100],
+                            child: ListView.builder(
+                              // controller: scrollController,
+                              itemCount: 25,
+                              itemBuilder: (BuildContext context, int index) {
+                                return ListTile(title: Text('Item $index'));
+                              },
+                            )))
+                  ],
+                );
+              });
+        })
